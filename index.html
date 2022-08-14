@@ -6,115 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Experiment</title>
-<style>
-    .hand{
-        cursor:pointer;
-    }
-    .cont{
-      background-color: white;
 
-      height: 60px;
-      width: 60%;
-    }
-    p {
-      text-align: center;
-      position: relative;
-      top: 50%;
-      -ms-transform: translateY(-50%);
-      -webkit-transform: translateY(-50%);
-      transform: translateY(-50%);
-    }
-</style>
+    <style>
+
+        body{
+         background:
+            /* top, transparent black, faked with gradient */ 
+            linear-gradient(
+            rgba(0, 0, 0, 0.4), 
+            rgba(0, 0, 0, 0.4)
+            ),
+            /* bottom, image */
+            url('map.jpg');
+        
+        }
+
+        .jumbotron {
+        background: rgba(255, 255, 255, 0.9); 
+        height:70%;
+        width: 60%;
+        }
+
+        .content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        }
+
+        .formt{
+            width: 100px;
+        }
+
+    </style>
+
   </head>
-  <body style="background-color: black;">
-<center>
-    <br>
-    <video autoplay muted src="car.mp4" id="video1" width="60%" onended="videoEnded()" ></video>
-    <div class="cont">
-      <p id="txt">Driving starts...</p>
-    </div>
-    <br>
-    <button type="button" class="btn btn-outline-warning" id="controlButton" onclick="mufunck()" >Take Control</button>
-</center>
-<br>
+  <body>
+    <div class="jumbotron text-center content">
+        <br><br>
+        <h1 class="display-4">Welcome!</h1>
+        <p class="lead">This part can contain some information about experiment and following applications.</p>
+        <hr class="my-4">
+        <p>Please select your experiment number</p>
 
-<!--
-<div class="btn-group-toggle d-flex justify-content-center " data-toggle="buttons" id="button">
-    <label class="btn btn-warning hand" onclick="onClick()" id="button"  >
-      <input type="checkbox" checked autocomplete="off" id="button" > Take Control
-    </label>
-  </div>
-  -->
+        <select id="st" class="custom-select" style="width: 20%;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+          <br><br>
+
+
+          <a class="btn btn-warning btn-md custom" onclick="return theFunction();" role="button">Start Experiment</a>
+      </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script>
-    function mufunck(){
-      document.getElementById("controlButton").disabled = true; 
-      var date_2 = new Date();
-      time_2 = date_2.getTime();
-      difference = time_2 - time_1;
-    }
-  </script>
-
-    <script>
-      //
-        function videoEnded() {
-            console.log(difference); //difference gelsin buraya
-            sessionStorage.setItem("buttonClicked", difference);
-            location.href="click.html";
-         }
-      </script>
-
-      <script>
-
-      document.getElementById("controlButton").disabled = true; 
-      var time_1;
-      var time_2;
-      var difference;
-        function sleep(ms) {
-          return new Promise(resolve => setTimeout(resolve, ms));
+     <script type="text/javascript">
+        function theFunction () {
+        var e = document.getElementById("st");
+        var value = e.value;
+        var text = e.options[e.selectedIndex].text;
+        sessionStorage.setItem("test", text); //which case user going (1,2,3,4)
+        location.href="exp.html";
         }
-        async function carSpeech() {
-          await sleep(5000);
-          document.getElementById("txt").innerHTML = "Unclear lanes are detected, do you wanna take control?";  
-          document.getElementById("controlButton").disabled = false; 
-  
-          //button enabled, time started
-          var date_1 = new Date();
-          time_1 = date_1.getTime();
-         
-          for ( let i = 5; i >= 1 ; i--) {        
-              await sleep(1000);
-              document.getElementById("txt").innerHTML = "Unclear lanes are detected, do you wanna take control? " + i; 
-          }
-          await sleep(500);
-          if(document.getElementById("controlButton").disabled == true){
-            document.getElementById("txt").innerHTML = "Successfully controlled.";
-          }
-          else {
-            document.getElementById("txt").innerHTML = "Failed to take control.";
-            document.getElementById("controlButton").disabled  = true; 
-          }
-          
-        }
-        
-        carSpeech()
-      </script>
+     </script>
 
 
-      <script>
-        var clicks = 0;
-        function onClick() {
-        clicks += 1;
-        
-        };
-      </script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
