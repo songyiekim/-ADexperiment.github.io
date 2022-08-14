@@ -1,0 +1,87 @@
+<!--DROPDOWN PAGE-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="icon" type="image/x-icon" href="media/skku_logo.png">
+    <title>AI Vulnerability Experiment</title>
+
+    <style>
+
+        body{
+         background:
+            /* top, transparent black, faked with gradient */ 
+            linear-gradient(
+            rgba(0, 0, 0, 0.4), 
+            rgba(0, 0, 0, 0.4)
+            ),
+            /* bottom, image */
+            url('media/garage.jpg');
+        
+        }
+
+        .jumbotron {
+        background: rgba(255, 255, 255, 0.9); 
+        height:70%;
+        width: 60%;
+        }
+
+        .content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        }
+
+        .formt{
+            width: 100px;
+        }
+
+    </style>
+
+  </head>
+  <body>
+    <div class="jumbotron text-center content">
+        <br><br>
+        <h1 class="display-4">Welcome!</h1>
+        <p class="lead">This part can contain some information about experiment and following applications.</p>
+        <hr class="my-4">
+        <p>Please select your experiment number</p>
+
+        <select id="st" class="custom-select" style="width: 20%;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+          <br><br>
+
+
+          <a class="btn btn-warning btn-md custom" onclick="return theFunction();" role="button">Start Experiment</a>
+      </div>
+ 
+     <script type="text/javascript">
+        function theFunction () {
+        var e = document.getElementById("st");
+        var value = e.value;
+        var text = e.options[e.selectedIndex].text;
+        sessionStorage.setItem("test", text); //which case user going (1,2,3,4)
+        location.href="exp.html";
+        }
+     </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+
