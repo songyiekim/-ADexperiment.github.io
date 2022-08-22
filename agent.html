@@ -42,12 +42,22 @@
             -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
             }
+            #preloader{
+              background: #170B2A url(media/dribbble-mdd.gif) no-repeat center;
+              background-size: 30%;
+              height: 100vh;
+              width: 100%;
+              position: fixed;
+              z-index: 100;
+
+            }
  
 
  
     </style>
   </head>
-  <body> <!--to be implemented: loader for smooth transition-->
+  <body> <!-- implemented: loader for smooth transition-->
+    <div id="preloader"></div>
     <div class="bg">
         <center>    
         <div class="contWhite container" style="position: fixed; bottom: 8%;">
@@ -118,6 +128,14 @@
         }
         
         carTalk()
+    </script>
+
+    <script>
+      var loader = document.getElementById("preloader");
+      window.addEventListener("load", function(){
+        loader.style.display = "none";
+        
+      })
     </script>
 
     <!-- Optional JavaScript -->
