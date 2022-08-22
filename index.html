@@ -17,14 +17,14 @@
 
         body{
         
-         background:
-            /* top, transparent black, faked with gradient */ 
+         background: #170B2A;
+            /*  
             linear-gradient(
             rgba(0, 0, 0, 0.4), 
             rgba(0, 0, 0, 0.4)
             ),
-            /* bottom, image */
             url('media/garage.jpg');
+            */ 
         
         }
 
@@ -58,6 +58,7 @@
 
   </head>
   <body>
+
     <div class="jumbotron text-center content" id="mainJumbo">
       <div id="ch">
         <br><br>
@@ -95,14 +96,14 @@
           document.getElementById("downText").remove();
           document.getElementById("downLine").remove();
           document.getElementById("hd").remove();
-          document.getElementById("mt").innerHTML = "<br>- In the experiment, you will indirectly experience driving an autonomous vehicle. This vehicle is a Level 2 partial automation vehicle, which is the highest level in the current market. <br><br> - Level 2 autonomous vehicles requires a human driver to monitor all tasks and should be able to take control of the vehicle at any time.";
+          document.getElementById("mt").innerHTML = "<br><br>In the experiment, you will indirectly experience driving an autonomous vehicle. This vehicle is a Level 2 partial automation vehicle, which is the highest level in the current market. <br><br> Level 2 autonomous vehicles requires a human driver to monitor all tasks and should be able to take control of the vehicle at any time.";
           page++;
         }
 
         else if(page == 1){
           //experiment exp
           page++;
-          document.getElementById("mt").innerHTML = "- During the experiment, you will face a couple scenarios where the driver must take control of the vehicle. When this happens, a warning message and a clickable button will appear, which you must click on the “take control” button as fast as possible. <br><br>- Once the vehicle is again able to autonomously drive the vehicle, a message will prompt, indicating that the vehicle has taken control over the navigation again. <br>- If you fail to take control of the vehicle within 5 seconds of the message prompt, a fail message will appear, but you will still continue with the experiment.<br><br>- There will be 6 scenarios in total where the driver must take control of the vehicle, so please pay close attention to any warning messages on the screen.";
+          document.getElementById("mt").innerHTML = "During the experiment, you will face a couple scenarios where the driver must take control of the vehicle. When this happens, a warning message and a clickable button will appear, which you must click on the “take control” button as fast as possible. <br><br> Once the vehicle is again able to autonomously drive the vehicle, a message will prompt, indicating that the vehicle has taken control over the navigation again. <br> If you fail to take control of the vehicle within 5 seconds of the message prompt, a fail message will appear, but you will still continue with the experiment.<br><br> There will be 6 scenarios in total where the driver must take control of the vehicle, so please pay close attention to any warning messages on the screen.";
         }
         else if(page==2){
           //closing page
@@ -117,6 +118,8 @@
         }
       }
      </script>
+
+
      
 
 
