@@ -78,25 +78,13 @@
       var time_1;
       var time_2;
       var difference;
-      if(bt == "1"){ //TESTCASE-1
-      
-      }
-      else if(bt=="2"){ //TESTCASE-2
-
-      }
-      else if(bt=="3"){ //TESTCASE-3
-
-      }
-      else if(bt=="4"){ //TESTCASE-4
-
-      }
 
         function sleep(ms) {
           return new Promise(resolve => setTimeout(resolve, ms));
         }
         async function carSpeech() {
           await sleep(5000);
-          document.getElementById("txt").innerHTML = "Unclear lanes are detected, do you wanna take control?";  
+          document.getElementById("txt").innerHTML = "Unclear lanes have been detected. Please take control.";  
           document.getElementById("controlButton").disabled = false; 
   
           //button enabled, time started
@@ -105,14 +93,14 @@
          
           for ( let i = 5; i >= 1 ; i--) {        
               await sleep(1000);
-              document.getElementById("txt").innerHTML = "Unclear lanes are detected, do you wanna take control? " + i; 
+              document.getElementById("txt").innerHTML = "Unclear lanes have been detected. Please take control. " + i; 
           }
           await sleep(500);
           if(document.getElementById("controlButton").disabled == true){
-            document.getElementById("txt").innerHTML = "Successfully controlled.";
+            document.getElementById("txt").innerHTML = "Thank you for taking control over the vehicle!";
           }
           else {
-            document.getElementById("txt").innerHTML = "Failed to take control.";
+            document.getElementById("txt").innerHTML = "We’re sorry, the vehicle control transfer was unsuccessful.";
             document.getElementById("controlButton").disabled  = true; 
           }
           

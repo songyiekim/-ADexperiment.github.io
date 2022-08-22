@@ -1,4 +1,4 @@
-<!--PHASE 2-->
+<!--PHASE 2 comp-->
 
 <!doctype html>
 <html lang="en">
@@ -110,6 +110,11 @@
           document.getElementById("vehictxt").innerHTML = limit1;
           await sleep(20000);
           document.getElementById("vehictxt").innerHTML = limit2;
+          await sleep(20000);
+          document.getElementById("vehictxt").innerHTML = "Thanks for listening! Now you will be directed to questionnaire.";
+          await sleep(5000);
+          location.href="survey.html"; //GO TO PHASE 3
+          
         }
         
         carTalk()
