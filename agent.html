@@ -1,0 +1,148 @@
+<!--PHASE 2 comp-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="icon" type="image/x-icon" href="media/skku_logo.png">
+    <title>AI Vulnerability Experiment</title>
+
+    <style>
+            body, html {
+            height: 100%;
+            }
+            .bg {
+            /* The image used */
+            background-image: url("media/car3.jpg");
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+            .contWhite{
+
+            background-color: white;
+            height: 20%;
+            width: 73%;
+            left: 13%;
+            }
+            p {
+            text-align: center;
+            position: relative;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            }
+            #preloader{
+              background: #170B2A url(media/dribbble-mdd.gif) no-repeat center;
+              background-size: 30%;
+              height: 100vh;
+              width: 100%;
+              position: fixed;
+              z-index: 100;
+
+            }
+ 
+
+ 
+    </style>
+  </head>
+  <body> <!-- implemented: loader for smooth transition-->
+    <div id="preloader"></div>
+    <div class="bg">
+        <center>    
+        <div class="contWhite container" style="position: fixed; bottom: 8%;">
+         
+            <p id="vehictxt"></p>
+          </div>
+        </center>
+    </div>
+    
+
+
+
+    <script>
+      var drop = sessionStorage.getItem('test');
+      var intro = "";
+      var background = "";
+      var limit1 = "";
+      var limit2= "";
+
+      if(drop == 1){ //GROUP 1
+        intro = "Hi! My name is HAI. Before you enjoy the unique autonomous driving experience, I would like to share with you a couple things that I can do and cannot do. Just for your information, I am striving to learn from your driving experience and input.";
+        background = "Here are some background information about my experience. So far, I have provided over 100,000 self-driving rides, while maintaining a record of zero at-fault incidents. I've been fortunate enough to call myself a safe vehicle with the help of hundreds of engineers who continuously strive to improve my safety features. Thanks to my team's constant effort, a recent report on our customers' driving experience states that 98% of the passengers awarded a 5-star rating.";  
+        limit1 = "Plus, my team was able to equip me with 8 cameras. Attaching multiple cameras empowers me with a strong vision processing skill that provides a 360 degree visibility up to 250 meters of range. However, in heavy precipitation, my lane dection accuracy rate drops from 96% to 78%, so smart cruise control will be limited. When I have difficulty detecting lanes, the human driver must take control over the navigation for additional assistance. So when the warning message pops up, please take control. My team and I will train more vigorously to showcase this in the near future. ";
+        limit2 = "My team has also worked really hard to develop my outstanding surrounding object detection skill. This unique feature called LiDAR uses light sensors to send millions of laser pulses every second with a detection accuracy of 94%. However, in conditions with heavy rain, the detection accuracy rate drops from 94% to 82%, so the collision prevention system will be limited. In extreme precipitation events, the human driver must take control of the navigation. When a warning message pops up, please take control. Sorry for the inconvenience. I am still learning and accumulating more relevant experience and data, and my team and I will do our best to offer you a better experience in the future. ";
+
+      }
+
+      else if(drop == 2){ //GROUP 2
+        intro = "Hi! My name is HAI. Before you enjoy the unique autonomous driving experience, I would like to share with you a couple things that I can do and cannot do.";
+        background = "Here are some background information about my experience. So far, I have provided over 100,000 self-driving rides, while maintaining a record of zero at-fault incidents. This extensive experience I have makes me a safe vehicle. Also, one of my proud achievements is a recent report on customers' driving experience where 98% of the passengers awarded a 5-star rating. ";
+        limit1 = "Plus, I am equipped with 8 cameras. Attaching multiple cameras empowers me with a strong vision processing skill that provides a 360 degree visibility up to 250 meters of range. However, in heavy precipitation, my lane detection accuracy rate drops from 96% to 78%, so smart cruise control will be limited. When I have difficulty detecting lanes, the human driver must take control over the navigation for additional assistance. So when the warning message pops up, please take control.";
+        limit2 = "Also, my oustanding surrounding object detection skill springs from a feature called LiDAR. This unique feature uses light sensors to send millions of laser pulses every second with a detection accuracy of 94%. However, in conditions with heavy rain, the detection accuracy rate drops from 94% to 82%, so the collision prevention system will be limited. In extreme precipitation events, the human driver must take control of the navigation. When a warning message pops up, please take control.";
+
+      }
+
+      else if(drop == 3){ //GROUP 3
+        intro = "Hi! My name is HAI. Before you enjoy the unique autonomous driving experience, I would like to share with you a couple things that I can do and cannot do. Just for your information, I am striving to learn from your driving experience and input.";
+        background = "Here are some background information about my experience. So far, I have provided a substantial number of self-driving rides and caused zero at-fault incidents. I've been fortunate enough to call myself a safe vehicle with the help of numerous engineers who continuosly strive to improve my safety features. Thanks to my team's constant effort, we were able to provide a remarkable driving experience to most of our customers. John, one of our valued customers who recently purchased a vehicle, awarded a 5-star rating to his experience.";
+        limit1 = "Plus, my team was able to equip me multiple cameras. Attaching multiple cameras empowers me with a strong vision processing skill. I spotted a running child even when the child was far from the vehicle, which prevented John from an accident. But also, when John was in the vehicle, it started pouring and lanes became unclear. So my smart cruise control became limited. When I have difficulty detecting lanes, the human driver, in this case John, must take control over the navigation for additional assistance. So when the warning message pops up, please take control. My team and I will train more vigorously to showcase this in the near future. ";
+        limit2 = "My team has also worked really hard to develop my outstanding surrounding object detection skill. This unique feature called LiDAR sends laser pulses to detect objects. For example, when I was driving with John, LiDAR was able to accurately detect a pole and avoided a potential collision. However, it suddenly started pouring, so the collision prevention system was limited. In extreme precipitation events, the human driver, in this case John, must take control of the navigation. When a warning message pops up, please take control. Sorry for the inconvenience. I am still learning and accumulating more relevant experience and data, and my team and I will do our best to offer you a better experience in the future.";
+      }
+
+      else if(drop == 4){ //GROUP 4
+        intro = "Hi! My name is HAI. Before you enjoy the unique autonomous driving experience, I would like to share with you a couple things that I can do and cannot do.";
+        background = "Here are some background information about my experience. So far, I have provided a substantial number of self-driving rides and caused zero at-fault incidents. This extensive experience I have makes me a safe vehicle. Also, one of my proud achievements is the remarkable experience expressed by most of our customers. John, one of our valued customers who recently purchased a vehicle, awarded a 5-star rating to his experience.";
+        limit1 = "Here are some background information about my experience. So far, I have provided a substantial number of self-driving rides and caused zero at-fault incidents. This extensive experience I have makes me a safe vehicle. Also, one of my proud achievements is the remarkable experience expressed by most of our customers. John, one of our valued customers who recently purchased a vehicle, awarded a 5-star rating to his experience.";
+        limit2 = "Also, my oustanding surrounding object detection skill springs from a feature called LiDAR. This unique feature called LiDAR sends laser pulses to detect objects. For example, when I was driving with John, I was able to accurately detect a pole and avoided a potential collision. However, it suddenly started pouring, so the collision prevention system was limited. In extreme precipitation events, the human driver, in this case John, must take control of the navigation. When a warning message pops up, please take control.";
+
+      }
+
+        function sleep(ms) {
+          return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        async function carTalk() { 
+          //this time inside sleep function can be changed according to speech speed
+          document.getElementById("vehictxt").innerHTML = intro;
+          await sleep(14000);
+          document.getElementById("vehictxt").innerHTML = background;
+          await sleep(20000);
+          document.getElementById("vehictxt").innerHTML = limit1;
+          await sleep(20000);
+          document.getElementById("vehictxt").innerHTML = limit2;
+          await sleep(20000);
+          document.getElementById("vehictxt").innerHTML = "Thanks for listening! Now you will be directed to questionnaire.";
+          await sleep(5000);
+          location.href="survey.html"; //GO TO PHASE 3
+          
+        }
+        
+        carTalk()
+    </script>
+
+    <script>
+
+      var loader = document.getElementById("preloader");
+      window.addEventListener("load", function(){
+      loader.style.display = "none";
+
+      })
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
